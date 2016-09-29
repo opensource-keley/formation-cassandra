@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Cassandra : Le guide pour bien débuter | Yann-Eric Devars</title>
+	<meta name="description" content="Découvrez le guide Cassandra réalisé par Yann-Eric Devars afin de bien débuter. Cassandra ne vous évoque rien ? Téléchargez notre Starter Kit réalisé par Romain Breton pour découvrir son fonctionnement et sa philosophie.">
+	<meta name="keywords" content="Cassandra, Base de données, Database, NoSQL, SGBD">
+	<meta name="author" content="Yann-Eric Devars">
+
+	<link rel="stylesheet" href="css/master.css" media="screen" title="no title">
+</head>
+<body ng-app="appCassandra">
+	<header class="page">
+		<div class="slider content flex row aifs jcfs fw">
+			<div class="w60 flex column aifs jcc fw">
+				<h1>Cassandra par Yann-Eric Devars</h1>
+				<p>Découvrez la puissance de Cassandra à travers ce guide pas à pas.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+				<hr>
+				<div class=" w100 flex row aic jcc fw">
+					<a href="#" target="_blank" class="w50 button plein white">Téléchargez le guide</a>
+					<a href="#" target="_blank" class="w50 button contour white">ou <span>le Starter-Kit</span></a>
+				</div>
+			</div>
+			<a href="#description"><span class="square"></span></a>
+		</div>
+	</header>
+	<div class="container header">
+		<div class="content">
+			<ul class="nav w100 flex row aic jcsa fw">
+				<li><a href="#description">Description</a></li>
+				<li><a href="#configuration">Configuration</a></li>
+				<li><a href="#bdd">Gestion de la BDD</a></li>
+				<li><a href="#requetes">Requêtes</a></li>
+				<li><a href="#operations">Opérations</a></li>
+				<li><a href="#vues">Vues</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="description" class="container page beige" ng-controller="descriptionController">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w50 left">
+				<h2>{{ descriptionCTitle }}</h2>
+				<hr>
+				<p class="textComple">{{ descriptionCText }}</p>
+				<p class="allRequests" ng-repeat="desc in descriptionC" ng-click="changeContent($index)">{{ desc.name}}</p>
+			</div>
+			<div class="w50 right">
+				<h2>{{ details.name }}</h2>
+				<hr>
+				<p class="comments">{{ details.desc }}</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="configuration" class="container page blue">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w100">
+				<h2>Configuration</h2>
+				<hr>
+				<div class="textComple">
+					<p class="littleTitle">Le fichier est situé dans un emplacement différent selon le type d'installation :</p>
+					<ul>
+						<li>Installation par package : <b> /etc/cassandra/cassandra.yaml</b></li>
+						<li>Installation par décompression : <b> <\dossier d\'installation> /cassandra /conf /cassandra.yaml</b></li>
+					</ul>
+					<p class="littleTitle">Données à modifier :</p>
+					<ul>
+						<li>Nom du Cluster : <b>cluster_name: 'MonCluster'</b> </li>
+						<li>Le mot de passe : <b>authenticator: PasswordAuthenticator</b>
+							<p>Permet de se connecter en tant que cassandra pour créer les autres utilisateurs</p>
+						</li>
+						<li>Les dossiers de sauvegarde : <b>data_file_directories:  - /opt/cassandra/data</b>
+							<p>Permet de définir le dossier des sauvegardes</p>
+						</li>
+						<li>Les logs : <b>commitlog_directory: /opt/cassandra/logs/commitlog</b>
+							<p>Permet de définir où seront les logs / ne doit pas être sur la même partition que les datas</p>
+						</li>
+						<li>IP de la machie : <b>listen_address : Ip de la machine</b>
+						</li>
+						<li>Les seeds : <b>- seeds: "10.9.8.7, 20.19.18.17"</b>
+							<p>Permet de définir les seeds pour démarrage des discussions entres nœuds</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="bdd" class="container page beige" ng-controller="bddController">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w50 left">
+				<h2>{{ gestionBDDTitle }}</h2>
+				<hr>
+				<p class="textComple">{{ gestionBDDText }}</p>
+				<p class="allRequests" ng-repeat="command in gestionBDD" ng-click="changeContent($index)">{{ command.name}}</p>
+			</div>
+			<div class="w50 right">
+				<h2>{{ details.name }}</h2>
+				<hr>
+				<span class="commandTitle">Commande</span>
+				<p class="command">{{ details.requete }}</p>
+				<p class="comments">{{ details.texteComplementaire }}</p>
+				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="requetes" class="container page blue" ng-controller="requetesController">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w50 left">
+				<h2>{{ requetesTitle }}</h2>
+				<p class="textComple">{{ requetesText }}</p>
+				<p class="allRequests" ng-repeat="command in gestionBDD" ng-click="changeContent($index)">{{ command.name}}</p>
+			</div>
+			<div class="w50 right">
+				<h2>{{ details.name }}</h2>
+				<hr>
+				<span class="commandTitle">Commande</span>
+				<p class="command">{{ details.requete }}</p>
+				<p class="comments">{{ details.texteComplementaire }}</p>
+				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="operations" class="container page beige" ng-controller="requetesController">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w50 left">
+				<h2>{{ requetesTitle }}</h2>
+				<p class="textComple">{{ requetesText }}</p>
+				<p class="allRequests" ng-repeat="command in gestionBDD" ng-click="changeContent($index)">{{ command.name}}</p>
+			</div>
+			<div class="w50 right">
+				<h2>{{ details.name }}</h2>
+				<hr>
+				<span class="commandTitle">Commande</span>
+				<p class="command">{{ details.requete }}</p>
+				<p class="comments">{{ details.texteComplementaire }}</p>
+				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+			</div>
+		</div>
+	</div>
+
+
+	<div id="vues" class="container page blue" ng-controller="vuesController">
+		<div class="content flex row aifs jcfs fw">
+			<div class="w50 left">
+				<h2>{{ vuesTitle }}</h2>
+				<hr>
+				<p class="textComple">{{ vuesText }}</p>
+				<p class="allRequests" ng-repeat="vue in vues" ng-click="changeContent($index)">{{ vue.name}}</p>
+			</div>
+			<div class="w50 right">
+				<h2>{{ details.name }}</h2>
+				<hr>
+				<span class="commandTitle">Commande</span>
+				<p class="command">{{ details.requete }}</p>
+				<p class="comments">{{ details.texteComplementaire }}</p>
+				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

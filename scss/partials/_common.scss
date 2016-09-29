@@ -1,0 +1,245 @@
+*{
+	padding:0;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.page{
+	width: 100%;
+	padding: 100px 10px;
+	box-sizing: border-box;
+	.w50.left{
+		@media screen and (min-width: $tabletWidth){border-right: 1px solid darken($color3, 15%);}
+		@media screen and (max-width: $tabletWidth){margin-bottom: 30px; padding-bottom:30px; border-bottom: 1px solid darken($color3, 15%);}
+	}
+	@media screen and (max-width: $mobileWidth){height:auto;}
+	.allRequests{
+		width: 100%;
+		padding: 10px;
+		box-sizing: border-box;
+		text-align: left;
+		border: 1px solid darken($color3, 15%);
+		color: $color1;
+		cursor:pointer;
+		transition: background-color 0.1s ease-out, color 0.1s ease-out;
+		&:hover{
+			background-color: $color2;
+			color: $color3;
+		}
+	}
+	span.commandTitle{
+		text-align: left;
+		display: block;
+		font-family: 'Opens sans', sans-serif;
+		font-size: 1.2em;
+		font-weight: lighten;
+	}
+	.command{
+		width: 100%;
+		background-color: $color2;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 1.5em;
+		font-weight: bold;
+		color: $color3;
+		padding: 10px;
+		box-sizing: border-box;
+		border-radius: 4px;
+	}
+	.comments, .textComple{
+		text-align: justify;
+		font-size: 1.3em;
+		color: $color1;
+		padding: 10px 0;
+		box-sizing: border-box;
+		p.littleTitle{margin:35px 0 20px 0; font-weight: bold; font-size: 1.2em;
+		@media screen and (max-width: $tabletWidth){font-size:1em;}}
+		ul{padding-left:50px;
+		@media screen and (max-width: $mobileWidth){padding-left: 30px;}}
+		p, li, span{
+			text-align: justify;
+			font-size: 1.1em;
+			color: $color1;
+			list-style: circle;
+			@media screen and (max-width: $tabletWidth){font-size:0.9em;}}
+	}
+	img{
+		width: 80%;
+		margin: 10px auto;
+		text-align: center;
+	}
+}
+
+hr{
+	width: 30%;
+	border: 1px solid darken($color3, 15%);
+	margin: 30px 0;
+}
+
+img{
+	width: 100%;
+	max-width: 900px;
+}
+
+
+.flex{
+	display: flex;
+	&.row{flex-direction: row;
+	@media screen and (max-width: $mobileWidth){flex-direction: column;}}
+	&.column{flex-direction: column;}
+	&.aifs{align-items: flex-start;}
+	&.aife{align-items: flex-end;}
+	&.aic{align-items: center;}
+	&.jcfs{justify-content:flex-start;}
+	&.jcfe{justify-content:flex-end;}
+	&.jcc{justify-content:center;}
+	&.jcsa{justify-content:space-around;}
+	&.jcsb{justify-content:space-between;}
+	&.fw{flex-wrap:wrap;}
+	&.fnw{flex-wrap:no-wrap;}
+}
+
+.w100{
+	width: 100%;
+	padding: 0 20px;
+	box-sizing: border-box;
+}
+
+.w50{
+	width: 50%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	@media screen and (max-width: $tabletWidth){
+		width: 100%;
+	}
+	&.right{
+		h2{
+			font-size: 2.5em;
+		}
+	}
+}
+
+.w60{
+	width: 60%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	@media screen and (max-width: $tabletWidth){
+		width: 100%;
+	}
+}
+
+.content{
+	max-width: $maxWidth;
+	margin: 0 auto;
+	width: 100%;
+}
+
+p, span{
+	font-size: 1em;
+	text-align:justify;
+	width: 100%;
+	margin: 5px 0;
+	@media screen and (max-width: $desktopWidth){font-size:1em;}
+}
+h1{
+	color: $color3;
+	font-family: 'Droid Serif', sans-serif;
+	font-size: 4.5em;
+	margin: 0 0 40px 0;
+	width: 100%;
+	text-align: left;
+	line-height: 100px;
+	@media screen and (max-width: $desktopWidth){font-size:3.6em; line-height: 100px;}
+	@media screen and (max-width: $mobileWidth){font-size:3em;}
+}
+
+h2{
+	color: $color2;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 3.5em;
+	width: 100%;
+	text-align: left;
+	@media screen and (max-width: $mobileWidth){font-size:3em;}
+	@media screen and (max-width: $desktopWidth){font-size:3em;}
+}
+
+a.button{
+	font-size: 1em;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-radius: 4px;
+	color: $color1;
+	text-align: center;
+	padding: 30px 20px;
+	box-sizing: border-box;
+	display: block;
+	text-decoration: none;
+	@media screen and (max-width: $desktopWidth){font-size:0.8em;}
+	span{ font-weight: 900;}
+	&.plein{
+		transition:background-color 0.3s ease-out;
+		&.white{
+			background-color: $color3;
+			&:hover{background-color: darken($color3, 15%);}
+		}
+		&.black{
+			background-color: $color2;
+			&:hover{background-color: $color1;}
+		}
+		&.blue{
+			background-color: $color4;
+			&:hover{background-color: darken($color4, 10%);}
+		}
+	}
+	&.contour{
+		box-sizing: border-box;
+		transition: background-color 0.3s ease-out, color 0.3s ease-out;
+		&.white{
+			color: $color3;
+			border: 2px solid $color3;
+			&:hover{background-color: $color3; color:$color1;}
+		}
+		&.black{
+			color: $color1;
+			border: 2px solid $color1;
+			&:hover{background-color: $color1; color:$color3;}
+		}
+		&.blue{
+			color: $color4;
+			border: 2px solid $color4;
+			&:hover{background-color: $color4; color:$color3;}
+		}
+	}
+	&.vide{
+		transition: background-color 0.3s ease-out, color 0.3s ease-out;
+		&.white{
+			color: $color3;
+			&:hover{background-color: $color3; color:$color1;}
+		}
+		&.black{
+			color: $color1;
+			&:hover{background-color: $color1; color:$color3;}
+		}
+		&.blue{
+			color: $color4;
+			&:hover{background-color: $color4; color:$color3;}
+		}
+	}
+}
+
+.beige{
+	background-color: $color3;
+	color: $color2;
+}
+
+.blue{
+	background-color: $color2;
+	color: $color3;
+	h1,h2, p, .textComple, .allRequests, .comments, .textComple p, .textComple li{
+		color: $color3;
+	}
+	.command{
+		background-color: $color3;
+		color: $color2;
+	}
+}

@@ -228,7 +228,7 @@ app.controller('operationsController', ['$scope', function($scope) {
 }]);
 
 app.controller('vuesController', ['$scope', function($scope) {
-	$scope.vuesTitle ="Opérations";
+	$scope.vuesTitle ="Vues";
 	$scope.vuesText= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis odio, ipsa voluptatum nobis beatae blanditiis deleniti necessitatibus numquam";
   	$scope.vues = [
 	  {

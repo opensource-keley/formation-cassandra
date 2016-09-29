@@ -14,7 +14,7 @@
 <body ng-app="appCassandra">
 	<header class="page">
 		<div class="slider content flex row aifs jcfs fw">
-			<div class="w60 flex column aifs jcc fw">
+			<div class="w60 flex column aifs jcc fw bdr">
 				<h1>Cassandra par Yann-Eric Devars</h1>
 				<p>Découvrez la puissance de Cassandra à travers ce guide pas à pas.</p>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
@@ -41,7 +41,7 @@
 	</div>
 	<div id="description" class="container page beige" ng-controller="descriptionController">
 		<div class="content flex row aifs jcfs fw">
-			<div class="w50 left">
+			<div class="w50 left bdr">
 				<h2>{{ descriptionCTitle }}</h2>
 				<hr>
 				<p class="textComple">{{ descriptionCText }}</p>
@@ -93,7 +93,7 @@
 
 	<div id="bdd" class="container page beige" ng-controller="bddController">
 		<div class="content flex row aifs jcfs fw">
-			<div class="w50 left">
+			<div class="w50 left bdr">
 				<h2>{{ gestionBDDTitle }}</h2>
 				<hr>
 				<p class="textComple">{{ gestionBDDText }}</p>
@@ -113,12 +113,7 @@
 
 	<div id="requetes" class="container page blue" ng-controller="requetesController">
 		<div class="content flex row aifs jcfs fw">
-			<div class="w50 left">
-				<h2>{{ requetesTitle }}</h2>
-				<p class="textComple">{{ requetesText }}</p>
-				<p class="allRequests" ng-repeat="command in gestionBDD" ng-click="changeContent($index)">{{ command.name}}</p>
-			</div>
-			<div class="w50 right">
+			<div class="w50 right bdr">
 				<h2>{{ details.name }}</h2>
 				<hr>
 				<span class="commandTitle">Commande</span>
@@ -126,16 +121,22 @@
 				<p class="comments">{{ details.texteComplementaire }}</p>
 				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
 			</div>
+			<div class="w50 left">
+				<h2>{{ requetesTitle }}</h2>
+				<p class="textComple">{{ requetesText }}</p>
+				<p class="allRequests" ng-repeat="command in requetes" ng-click="changeContent($index)">{{ command.name}}</p>
+			</div>
+
 		</div>
 	</div>
 
 
-	<div id="operations" class="container page beige" ng-controller="requetesController">
+	<div id="operations" class="container page beige" ng-controller="operationsController">
 		<div class="content flex row aifs jcfs fw">
-			<div class="w50 left">
-				<h2>{{ requetesTitle }}</h2>
-				<p class="textComple">{{ requetesText }}</p>
-				<p class="allRequests" ng-repeat="command in gestionBDD" ng-click="changeContent($index)">{{ command.name}}</p>
+			<div class="w50 left bdr">
+				<h2>{{ operationsTitle }}</h2>
+				<p class="textComple">{{ operationsText }}</p>
+				<p class="allRequests" ng-repeat="command in operations" ng-click="changeContent($index)">{{ command.name}}</p>
 			</div>
 			<div class="w50 right">
 				<h2>{{ details.name }}</h2>
@@ -151,19 +152,30 @@
 
 	<div id="vues" class="container page blue" ng-controller="vuesController">
 		<div class="content flex row aifs jcfs fw">
-			<div class="w50 left">
-				<h2>{{ vuesTitle }}</h2>
-				<hr>
-				<p class="textComple">{{ vuesText }}</p>
-				<p class="allRequests" ng-repeat="vue in vues" ng-click="changeContent($index)">{{ vue.name}}</p>
-			</div>
-			<div class="w50 right">
+			<div class="w50 right bdr">
 				<h2>{{ details.name }}</h2>
 				<hr>
 				<span class="commandTitle">Commande</span>
 				<p class="command">{{ details.requete }}</p>
 				<p class="comments">{{ details.texteComplementaire }}</p>
 				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+			</div>
+			<div class="w50 left">
+				<h2>{{ vuesTitle }}</h2>
+				<hr>
+				<p class="textComple">{{ vuesText }}</p>
+				<p class="allRequests" ng-repeat="vue in vues" ng-click="changeContent($index)">{{ vue.name}}</p>
+			</div>
+		</div>
+	</div>
+
+	<div id="vues" class="container page beige" ng-controller="vuesController">
+		<div class="content flex row aifs jcfs fw">
+			<h2>Télécharger le guide</h2>
+			<hr>
+			<div class=" w100 flex row aic jcc fw">
+				<a href="#" target="_blank" class="w50 button plein black">Téléchargez le guide</a>
+				<a href="#" target="_blank" class="w50 button contour black">ou <span>le Starter-Kit</span></a>
 			</div>
 		</div>
 	</div>

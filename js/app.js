@@ -69,7 +69,7 @@ app.controller('descriptionController', ['$scope', function($scope) {
 
 app.controller('bddController', ['$scope', function($scope) {
 	$scope.gestionBDDTitle ="Gestion";
-	$scope.gestionBDDText= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis odio, ipsa voluptatum nobis beatae blanditiis deleniti necessitatibus numquam";
+	$scope.gestionBDDText= "Avant de pouvoir stocker vos données dans votre base de donnée, il vous faut bien paramétrer la base de donnée, créer vos keyspaces, vos tables et commencer à importer des données. Suivons ces étapes pas à pas.";
   	$scope.gestionBDD = [
 	  {
 		  name : 'Afficher les différents Keyspace',
@@ -140,7 +140,7 @@ app.controller('bddController', ['$scope', function($scope) {
 
 app.controller('requetesController', ['$scope', function($scope) {
 	$scope.requetesTitle ="Requêtes simples";
-	$scope.requetesText= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis odio, ipsa voluptatum nobis beatae blanditiis deleniti necessitatibus numquam";
+	$scope.requetesText= "Une fois votre base de donnée structurée, vos premières données stockées, vous pouvez visualiser ces informations, via différentes requêtes.";
   	$scope.requetes = [
 	  {
 		  name : 'Sélectionner toutes les données',
@@ -193,7 +193,7 @@ app.controller('requetesController', ['$scope', function($scope) {
 
 app.controller('operationsController', ['$scope', function($scope) {
 	$scope.operationsTitle ="Opérations";
-	$scope.operationsText= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis odio, ipsa voluptatum nobis beatae blanditiis deleniti necessitatibus numquam";
+	$scope.operationsText= "Dans certains cas, il se peut que vous aillez besoin de modifier la structure de votre base de donnée/ structure de vos tables, ou gérer les utilisateurs.";
   	$scope.operations = [
 	  {
 		  name : 'Ajouter une colonne',
@@ -258,7 +258,7 @@ app.controller('operationsController', ['$scope', function($scope) {
 
 app.controller('vuesController', ['$scope', function($scope) {
 	$scope.vuesTitle ="Vues";
-	$scope.vuesText= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis odio, ipsa voluptatum nobis beatae blanditiis deleniti necessitatibus numquam";
+	$scope.vuesText= "Une vue dans une base de données est une sythèse d’une requête d’interrogation de la base. On peut voir une vue comme une table virtuelle qui est définie par un requête. Une vue permet à l’utilisateur d’éviter de taper une requête très longue, mais aussi pour masque certaines informations à certains utilisateurs. ";
   	$scope.vues = [
 	  {
 		  name : 'Créer une vue depuis une requête:',

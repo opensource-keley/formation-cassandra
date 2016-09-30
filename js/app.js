@@ -15,6 +15,11 @@ $(document).ready(function() {
                 $(".header").removeClass('ancre');
             }
         });
+	$('#top').on('click', function(event) {
+		$('html, body').animate({
+			scrollTop:0
+		}, 'slow');
+	});
 });
 
 var app = angular.module("appCassandra", []);
@@ -70,61 +75,61 @@ app.controller('bddController', ['$scope', function($scope) {
 		  name : 'Afficher les différents Keyspace',
 		  requete : "DESCRIBE KEYSPACE",
 		  texteComplementaire : "Commande permettant d'afficher les différents KEYSPACES des datacenters.",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/datacenter.svg',
 	  },
 	  {
 		  name : 'Créer un Keyspace avec un Datacenter',
 		  requete : "CREATE KEYSPACE villes WITH REPLICATION = {'class': 'SimpleStrategy' , 'replication_factor': 4}",
 		  texteComplementaire : 'Attention à ne pas choisir un replication_factor suppérieur au nombre de nœuds présents sur le datacenter.',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/datacenter.svg',
 	  },
 	  {
 		  name : 'Créer un Keyspace avec plusieurs Datacenters',
 		  requete : "CREATE KEYSPACE villes WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'Paris': 4, 'Toulouse': 3, 'Lille': 2} ;",
 		  texteComplementaire : 'Attention à ne pas choisir un replication_factor suppérieur au nombre de nœuds présent sur les datacenters.',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/datacenters.svg',
 	  },
 		{
 			name : 'Créer une table',
 			requete : 'CREATE TABLE villes.coordonnees (nom text, code_postal text, latitude text, longitude text,  nom_affiche text, primary key (nom, code_postal));',
 			texteComplementaire : 'Ici la clef est composée des deux champs « nom » et « code postal » Dans le cas présent les données ayant la même clef seront stockées sur le même nœud.',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : 'images/tables.svg',
 		},
 		{
 			name : 'Afficher les proriétés d\'une table',
 			requete : 'DESCRIBE villes.coordonnees ;',
 			texteComplementaire : 'On va afficher les données contenues dans la table villes',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : 'images/tables.svg',
 		},
 		{
 			name : 'Insérer des données',
 			requete : 'INSERT into villes.coordonnees (nom, code_postal, latitude, longitude, nom_affiche) values ("Clumanc", "04330", "6.416670", "1.25", "clumanc");',
 			texteComplementaire : 'ici on va créer une nouvelle entrée Clumanc dans la table villes.coordonnees',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : 'images/addEntry.svg',
 		},
 		{
 			name : 'Supprimer une colonne',
 			requete : 'ALTER TABLE villes.coordonnees drop colonne_a_supprimer;',
 			texteComplementaire : 'Cette commande permet de supprimer une entrée dans la table villes.coordonnees',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : 'images/supCol.svg',
 		},
 		{
 			name : 'Sélectionner des données',
 			requete : 'SELECT * FROM villes.coordonnees;',
 			texteComplementaire : 'Cette commande permet ici de récupérer toutes les données enregistrées dans la table villes.coordonnees',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : '',
 		},
 		{
 			name : 'Importer des données depuis un CSV',
 			requete : 'COPY villes.coordonnees FROM "liste_villes.csv" WITH DELIMITER = ";";',
 			texteComplementaire : 'Ici on va importer les données du fichier CSV liste_villes.csv dans la table villes.coordonnees',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : '',
 		},
 		{
 			name : 'Exporter des données vers un CSV',
 			requete : 'COPY villes.coordonnees to "liste_villes.csv" WITH DELIMITER = ";";',
 			texteComplementaire : 'Ici on va exporter les données de la table dans le fichier CSV liste_villes.csv',
-			imageRel : 'images/hardDrive.jpg',
+			imageRel : '',
 		}
   	];
   	$scope.details = $scope.gestionBDD[0];
@@ -141,43 +146,43 @@ app.controller('requetesController', ['$scope', function($scope) {
 		  name : 'Sélectionner toutes les données',
 		  requete : "SELECT * FROM villes.coordonnees;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Sélectionner des données et limiter le nombre de lignes retournées',
 		  requete : "SELECT * FROM villes.coordonnees limit 10;",
 		  texteComplementaire : '',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Sélectionner des données selon la clef primaire',
 		  requete : "SELECT * FROM villes.coordonnees WHERE nom = 'Lagny-sur-Marne' and code_postal = '77400' ;",
 		  texteComplementaire : '',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Sélectionner des données selon un seul élément de la clef primaire',
 		  requete : "SELECT * FROM villes.coordonnees WHERE code_postal = '77400' ALLOW FILTERING ;",
 		  texteComplementaire : "Attention cette requête peut affecter les performances de la base de données, c\'est pour cette raison qu\'il faut « forcer » la requête avec  ALLOW FILTERING. Une bonne pratique consiste à utiliser LIMIT pour éviter la perte de performances : SELECT * FROM villes.coordonnees WHERE code_postal = '77400' LIMIT 5 ALLOW FILTERING ;",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Compte le nombre de lignes',
 		  requete : "SELECT count(*) from villes.coordonnees;",
 		  texteComplementaire : 'Attention cette requête peut affecter les performances de la base de données, elle doit interroger tous les nœuds.',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Supprimer des données',
-		  requete : "DELETE from villes.coordonnees where nom = 'Dampmart';",
+		  requete : "DELETE from villes.coordonnees where nom = 'Clumanc';",
 		  texteComplementaire : 'Possible que sur une clef pour des raisons de performances.',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/suppData.svg',
 	  },
 	  {
 		  name : 'Mettre à jour un champ',
-		  requete : "UPDATE villes.coordonnees set nb_habitants = 20718 WHERE nom = 'Lagny-sur-Marne' and code_postal = '77400';",
+		  requete : "UPDATE villes.coordonnees set nb_habitants = 20718 WHERE nom = 'Clumanc' and code_postal = '04330';",
 		  texteComplementaire : '',
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/updateData.svg',
 	  },
   	];
   	$scope.details = $scope.requetes[0];
@@ -194,55 +199,55 @@ app.controller('operationsController', ['$scope', function($scope) {
 		  name : 'Ajouter une colonne',
 		  requete : "ALTER TABLE villes.coordonnees ADD nb_habitants int;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/addCol.svg',
 	  },
 	  {
 		  name : 'Supprimer une colonne',
 		  requete : "ALTER TABLE villes.coordonnees DROP nb_habitants;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : 'images/supCol.svg',
 	  },
 	  {
 		  name : 'Vider une colonne',
 		  requete : "TRUNCATE  villes.coordonnees;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
-		  name : 'Vérifier les stratégies de réplication et coefficient de réplication :',
+		  name : 'Vérifier les stratégies de réplication et coefficient de réplication',
 		  requete : "SELECT * FROM system_schema.keyspaces ;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
-		  name : 'Changer le coefficient de réplication :',
+		  name : 'Changer le coefficient de réplication',
 		  requete : "ALTER KEYSPACE villes WITH replication = {'class': 'SimpleStrategy' , 'replication_factor': 5} ;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Créer un utilisateur (SuperUser)',
 		  requete : "CREATE USER bda WITH PASSWORD 'bdaPassword' SUPERUSER;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Créer un utilisateur',
 		  requete : "CREATE USER simple_user WITH PASSWORD 'userPassword' NOSUPERUSER;",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Supprimer un utilisateur',
 		  requete : "DROP USER simple_user",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Lister les utilisateurs',
 		  requete : "LIST USERS",
 		  texteComplementaire : "",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
   	];
   	$scope.details = $scope.operations[0];
@@ -259,13 +264,13 @@ app.controller('vuesController', ['$scope', function($scope) {
 		  name : 'Créer une vue depuis une requête:',
 		  requete : "CREATE MATERIALIZED VIEW villes.grandes_villes as SELECT * from villes.coordonnees WHERE nom in ('Paris', 'Marseille') AND nom IS NOT NULL AND code_postal IS NOT NULL PRIMARY KEY (nom, code_postal);",
 		  texteComplementaire : "La requête select doit vérifier que les clefs ne sont pas nulles et la nouvelle clef doit etre egale ou plus restrictive que la table d'origine.",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
 	  {
 		  name : 'Requête optimale au niveau performances',
 		  requete : "SELECT * FROM villes.grandes_villes ;",
 		  texteComplementaire : "Cette requête est optimale au niveau performances;",
-		  imageRel : 'images/hardDrive.jpg',
+		  imageRel : '',
 	  },
   	];
   	$scope.details = $scope.vues[0];

@@ -414,6 +414,41 @@ div.header .nav {
         color: #303841;
         font-weight: 700; }
 
+#top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #303841;
+  border-radius: 50%;
+  border: 4px solid #3A4750;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer; }
+  #top span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-right: 1px solid #EEEEEE;
+    border-top: 1px solid #EEEEEE;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    position: relative;
+    top: 5px; }
+
 .page .w50 {
   padding: 0 20px;
   -webkit-box-sizing: border-box;

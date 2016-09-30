@@ -100,3 +100,29 @@ div.header{
 		}
 	}
 }
+
+#top{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 60px;
+	height: 60px;
+	background-color: $color1;
+	border-radius: 50%;
+	border: 4px solid $color2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	span{
+		display: block;
+		width: 20px;
+		height: 20px;
+		border-right: 1px solid $color3;
+		border-top: 1px solid $color3;
+		transform: rotate(-45deg);
+		position: relative;
+		top: 5px;
+	}
+}

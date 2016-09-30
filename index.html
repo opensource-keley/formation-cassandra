@@ -12,16 +12,18 @@
 	<link rel="stylesheet" href="css/master.css" media="screen" title="no title">
 </head>
 <body ng-app="appCassandra">
+	<p id="top"><span></span></p>
 	<header class="page">
 		<div class="slider content flex row aifs jcfs fw">
-			<div class="w60 flex column aifs jcc fw bdr">
+			<div class="w60 flex column aifs jcc fw">
 				<h1>Cassandra par Yann-Eric Devars</h1>
 				<p>Découvrez la puissance de Cassandra à travers ce guide pas à pas.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+				<p>Avec son infrastructure NoSQL, Cassandra est une base de données orientée colonne permettant d'obtenir de hautes performances sur une grande quantité de données. Cette base de donnée est optimisée pour la Big Data. Apprenez les commandes principales afin de bien débuter sur Cassandra.</p>
+				<p>Vous débutez ? Téléchargez notre Starter-Kit afin de découvrir l'environnement et le fonctionnement de Cassandra.</p>
 				<hr>
 				<div class=" w100 flex row aic jcc fw">
-					<a href="#" target="_blank" class="w50 button plein white">Téléchargez le guide</a>
-					<a href="#" target="_blank" class="w50 button contour white">ou <span>le Starter-Kit</span></a>
+					<a href="documents/Guide_Cassandra.pdf" target="_blank" class="w50 button plein white">Téléchargez le guide</a>
+					<a href="documents/Starter-Kit.pdf" target="_blank" class="w50 button contour white">ou <span>le Starter-Kit</span></a>
 				</div>
 			</div>
 			<a href="#description"><span class="square"></span></a>
@@ -36,6 +38,7 @@
 				<li><a href="#requetes">Requêtes</a></li>
 				<li><a href="#operations">Opérations</a></li>
 				<li><a href="#vues">Vues</a></li>
+				<li><a href="#guide">Télécharger</a></li>
 			</ul>
 		</div>
 	</div>
@@ -105,7 +108,7 @@
 				<span class="commandTitle">Commande</span>
 				<p class="command">{{ details.requete }}</p>
 				<p class="comments">{{ details.texteComplementaire }}</p>
-				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+				<img ng-if="details.imageRel" ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
 			</div>
 		</div>
 	</div>
@@ -119,14 +122,13 @@
 				<span class="commandTitle">Commande</span>
 				<p class="command">{{ details.requete }}</p>
 				<p class="comments">{{ details.texteComplementaire }}</p>
-				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+				<img ng-if="details.imageRel" ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
 			</div>
 			<div class="w50 left">
 				<h2>{{ requetesTitle }}</h2>
 				<p class="textComple">{{ requetesText }}</p>
 				<p class="allRequests" ng-repeat="command in requetes" ng-click="changeContent($index)">{{ command.name}}</p>
 			</div>
-
 		</div>
 	</div>
 
@@ -144,7 +146,7 @@
 				<span class="commandTitle">Commande</span>
 				<p class="command">{{ details.requete }}</p>
 				<p class="comments">{{ details.texteComplementaire }}</p>
-				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+				<img ng-if="details.imageRel" ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
 			</div>
 		</div>
 	</div>
@@ -158,7 +160,7 @@
 				<span class="commandTitle">Commande</span>
 				<p class="command">{{ details.requete }}</p>
 				<p class="comments">{{ details.texteComplementaire }}</p>
-				<img ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
+				<img ng-if="details.imageRel" ng-src="{{ details.imageRel }}" alt="{{ details.name }}">
 			</div>
 			<div class="w50 left">
 				<h2>{{ vuesTitle }}</h2>
@@ -169,17 +171,17 @@
 		</div>
 	</div>
 
-	<div id="vues" class="container page beige" ng-controller="vuesController">
+	<div id="guide" class="container page beige">
 		<div class="content flex row aifs jcfs fw">
 			<h2>Télécharger le guide</h2>
 			<hr>
 			<div class=" w100 flex row aic jcc fw">
-				<a href="#" target="_blank" class="w50 button plein black">Téléchargez le guide</a>
-				<a href="#" target="_blank" class="w50 button contour black">ou <span>le Starter-Kit</span></a>
+				<a href="documents/Guide_Cassandra.pdf" target="_blank" class="w50 button plein black">Téléchargez le guide</a>
+				<a href="documents/Starter-Kit.pdf" target="_blank" class="w50 button contour black">ou <span>le Starter-Kit</span></a>
 			</div>
 		</div>
 	</div>
-
+	
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>

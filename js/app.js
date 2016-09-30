@@ -58,7 +58,7 @@ app.controller('descriptionController', ['$scope', function($scope) {
 	  },
 	  {
 		  name : 'Accès aux données',
-		  desc : '<ul><li>Écriture dans le commit log</li><li>Écriture des données dans la memtable</li><li>Écriture des données depuis la memtable vers la sstable<ol><li>Automatique lorsque la memtable va être pleine</li>Peut être déclenché manuellement (opération d\'admin)<li></li></ol></li>',
+		  desc : 'Cassandra stocke et accède aux données en écrivant dans le commit log, en écrivant des données dans la memtable, puis de la memtable vers la sstable (automatique lorsque la memtable va être pleine, peut être déclenché manuellement (opération d\'admin))',
 	  },
   	];
   	$scope.details = $scope.descriptionC[0];

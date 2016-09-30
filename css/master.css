@@ -315,45 +315,42 @@ header {
   background-size: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
-  height: 100vh; }
-  header .slider {
-    height: 100%; }
-    @media screen and (max-width: 500px) {
-      header .slider {
-        height: auto; } }
-    header .slider > div {
-      padding: 0 15px;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      text-align: center; }
-    @media screen and (max-width: 500px) {
-      header .slider h1 {
-        text-align: center; } }
-    header .slider p {
-      color: #EEEEEE;
-      font-size: 1.3em; }
-      header .slider p:last-of-type {
-        margin-bottom: 40px; }
-    header .slider div.w100 {
-      padding: 0;
-      margin: 30px 0; }
-    header .slider > a {
-      width: 100%;
-      height: 50px;
+  background-position: center center; }
+  @media screen and (max-width: 500px) {
+    header .slider {
+      height: auto; } }
+  header .slider > div {
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    text-align: center; }
+  @media screen and (max-width: 500px) {
+    header .slider h1 {
+      text-align: center; } }
+  header .slider p {
+    color: #EEEEEE;
+    font-size: 1.3em; }
+    header .slider p:last-of-type {
+      margin-bottom: 40px; }
+  header .slider div.w100 {
+    padding: 0;
+    margin: 30px 0; }
+  header .slider > a {
+    width: 100%;
+    height: 50px;
+    display: block;
+    position: relative; }
+    header .slider > a span.square {
+      width: 30px;
+      height: 30px;
       display: block;
-      position: relative; }
-      header .slider > a span.square {
-        width: 30px;
-        height: 30px;
-        display: block;
-        text-align: center;
-        -webkit-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-        border-bottom: 2px solid #ffffff;
-        border-left: 2px solid #ffffff;
-        margin: 0 auto; }
+      text-align: center;
+      -webkit-transform: rotate(-45deg);
+          -ms-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      border-bottom: 2px solid #ffffff;
+      border-left: 2px solid #ffffff;
+      margin: 0 auto; }
 
 a.w50.button {
   width: -webkit-calc(50% - 10px);

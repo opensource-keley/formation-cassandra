@@ -103,7 +103,7 @@ app.controller('bddController', ['$scope', function($scope) {
 		},
 		{
 			name : 'Insérer des données',
-			requete : 'INSERT into villes.coordonnees (nom, code_postal, latitude, longitude, nom_affiche) values ("Clumanc", "04330", "6.416670", "1.25", "clumanc");',
+			requete : "INSERT into villes.coordonnees (nom, code_postal, latitude, longitude, nom_affiche) values ('Clumanc', '04330', '6.416670', '1.25','clumanc');",
 			texteComplementaire : 'ici on va créer une nouvelle entrée Clumanc dans la table villes.coordonnees',
 			imageRel : 'images/addEntry.svg',
 		},
@@ -121,13 +121,13 @@ app.controller('bddController', ['$scope', function($scope) {
 		},
 		{
 			name : 'Importer des données depuis un CSV',
-			requete : 'COPY villes.coordonnees FROM "liste_villes.csv" WITH DELIMITER = ";";',
+			requete : "COPY villes.coordonnees FROM 'liste_villes.csv' WITH DELIMITER = ';';",
 			texteComplementaire : 'Ici on va importer les données du fichier CSV liste_villes.csv dans la table villes.coordonnees',
 			imageRel : '',
 		},
 		{
 			name : 'Exporter des données vers un CSV',
-			requete : 'COPY villes.coordonnees to "liste_villes.csv" WITH DELIMITER = ";";',
+			requete : "COPY villes.coordonnees to 'liste_villes.csv' WITH DELIMITER = ';';",
 			texteComplementaire : 'Ici on va exporter les données de la table dans le fichier CSV liste_villes.csv',
 			imageRel : '',
 		}
@@ -258,7 +258,7 @@ app.controller('operationsController', ['$scope', function($scope) {
 
 app.controller('vuesController', ['$scope', function($scope) {
 	$scope.vuesTitle ="Vues";
-	$scope.vuesText= "Une vue dans une base de données est une sythèse d’une requête d’interrogation de la base. On peut voir une vue comme une table virtuelle qui est définie par un requête. Une vue permet à l’utilisateur d’éviter de taper une requête très longue, mais aussi pour masque certaines informations à certains utilisateurs. ";
+	$scope.vuesText= "Une vue dans une base de données est une synthèse d’une requête d’interrogation de la base. On peut voir une vue comme une table virtuelle qui est définie par un requête. Une vue permet à l’utilisateur d’éviter de taper une requête très longue, mais aussi pour masquer certaines informations à certains utilisateurs. ";
   	$scope.vues = [
 	  {
 		  name : 'Créer une vue depuis une requête:',

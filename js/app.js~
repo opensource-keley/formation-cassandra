@@ -26,7 +26,7 @@ var app = angular.module("appCassandra", []);
 
 app.controller('descriptionController', ['$scope', function($scope) {
 	$scope.descriptionCTitle ="Définitions";
-	$scope.descriptionCText= "Créée par Facebook pour ses besoins de haute disponibilité, performance et gestion de gros volumes de données, Cassandra a été mis à disposition de la communauté open source depuis 2008 et offerte à la fondation Apache. Cassandra est un système de gestion de base de données NoSQL conçu pour stoker de gros volumes de données de manière distribuée sur plusieurs serveurs.";
+	$scope.descriptionCText= "Créée par Facebook pour ses besoins de haute disponibilité, performance et gestion de gros volumes de données, Cassandra a été mis à disposition de la communauté open source depuis 2008 et offerte à la fondation Apache. <br/>Cassandra est un système de gestion de base de données NoSQL conçu pour stoker de gros volumes de données de manière distribuée sur plusieurs serveurs.";
   	$scope.descriptionC = [
 	  {
 		  name : 'SGBD',

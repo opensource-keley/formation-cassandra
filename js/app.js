@@ -6,20 +6,28 @@ $(document).ready(function() {
 		}, 'slow');
 		return false;
 	});
+	ancrageMenu();
 	$(document).scroll(function(){
-            var scrollTop = $(document).scrollTop();
-            if(scrollTop > $('header').height() + 250 ){
-                $(".header").addClass('ancre');
-            }
-            else {
-                $(".header").removeClass('ancre');
-            }
-        });
+        ancrageMenu();
+    });
+	// Scroll Top 0 if user click on the button
 	$('#top').on('click', function(event) {
 		$('html, body').animate({
 			scrollTop:0
 		}, 'slow');
 	});
+	// Function to sticky or not the navbar
+	function ancrageMenu(){
+		var scrollTop = $(document).scrollTop();
+		var offset = $('.header').offset();
+		// if(scrollTop > $('header').height() + 40 ){
+		if(scrollTop > offset.top ){
+			$(".header").addClass('ancre');
+		}
+		else {
+			$(".header").removeClass('ancre');
+		}
+	}
 });
 
 var app = angular.module("appCassandra", []);

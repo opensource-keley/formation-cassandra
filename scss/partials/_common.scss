@@ -188,9 +188,10 @@ a.button{
 			color: $color3;
 			&:hover{background-color: $color1;}
 		}
-		&.blue{
-			background-color: $color4;
-			&:hover{background-color: darken($color4, 10%);}
+		&.grey{
+			background-color: darken($color3, 35%);
+			color: $color3;
+			&:hover{background-color: darken($color3, 45%);}
 		}
 	}
 	&.contour{

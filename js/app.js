@@ -34,7 +34,7 @@ var app = angular.module("appCassandra", []);
 
 app.controller('descriptionController', ['$scope', function($scope) {
 	$scope.descriptionCTitle ="Définitions";
-	$scope.descriptionCText= "Créée par Facebook pour ses besoins de haute disponibilité, performance et gestion de gros volumes de données, Cassandra a été mis à disposition de la communauté open source depuis 2008 et offerte à la fondation Apache. Cassandra est un système de gestion de base de données NoSQL conçu pour stoker de gros volumes de données de manière distribuée sur plusieurs serveurs.";
+	$scope.descriptionCText= "Créée par Facebook pour ses besoins de haute disponibilité, de performance et de gestion de gros volumes de données, Cassandra a été mise à disposition de la communauté open source depuis 2008 et offerte à la fondation Apache. Cassandra est un système de gestion de base de données NoSQL conçu pour stocker de gros volumes de données de manière distribuée sur plusieurs serveurs.";
   	$scope.descriptionC = [
 	  {
 		  name : 'SGBD',
@@ -77,7 +77,7 @@ app.controller('descriptionController', ['$scope', function($scope) {
 
 app.controller('bddController', ['$scope', function($scope) {
 	$scope.gestionBDDTitle ="Gestion";
-	$scope.gestionBDDText= "Avant de pouvoir stocker vos données dans votre base de donnée, il vous faut bien paramétrer la base de donnée, créer vos keyspaces, vos tables et commencer à importer des données. Suivons ces étapes pas à pas.";
+	$scope.gestionBDDText= "Avant de pouvoir stocker vos données dans votre base de données, il vous faut bien paramétrer la base de données, créer vos keyspaces, créer vos tables et commencer à importer des données. Suivons ces étapes pas à pas.";
   	$scope.gestionBDD = [
 	  {
 		  name : 'Afficher les différents Keyspace',
@@ -88,19 +88,19 @@ app.controller('bddController', ['$scope', function($scope) {
 	  {
 		  name : 'Créer un Keyspace avec un Datacenter',
 		  requete : "CREATE KEYSPACE villes WITH REPLICATION = {'class': 'SimpleStrategy' , 'replication_factor': 4}",
-		  texteComplementaire : 'Attention à ne pas choisir un replication_factor suppérieur au nombre de nœuds présents sur le datacenter.',
+		  texteComplementaire : 'Attention à ne pas choisir un replication_factor supérieur au nombre de nœuds présents sur le datacenter.',
 		  imageRel : 'images/datacenter.svg',
 	  },
 	  {
 		  name : 'Créer un Keyspace avec plusieurs Datacenters',
 		  requete : "CREATE KEYSPACE villes WITH REPLICATION = {'class': 'NetworkTopologyStrategy', 'Paris': 4, 'Toulouse': 3, 'Lille': 2} ;",
-		  texteComplementaire : 'Attention à ne pas choisir un replication_factor suppérieur au nombre de nœuds présent sur les datacenters.',
+		  texteComplementaire : 'Attention à ne pas choisir un replication_factor supérieur au nombre de nœuds présents sur les datacenters.',
 		  imageRel : 'images/datacenters.svg',
 	  },
 		{
 			name : 'Créer une table',
 			requete : 'CREATE TABLE villes.coordonnees (nom text, code_postal text, latitude text, longitude text,  nom_affiche text, primary key (nom, code_postal));',
-			texteComplementaire : 'Ici la clef est composée des deux champs « nom » et « code postal » Dans le cas présent les données ayant la même clef seront stockées sur le même nœud.',
+			texteComplementaire : 'Ici la clef est composée des deux champs « nom » et « code postal ». Dans le cas présent les données ayant la même clef seront stockées sur le même nœud.',
 			imageRel : 'images/tables.svg',
 		},
 		{
@@ -148,7 +148,7 @@ app.controller('bddController', ['$scope', function($scope) {
 
 app.controller('requetesController', ['$scope', function($scope) {
 	$scope.requetesTitle ="Requêtes simples";
-	$scope.requetesText= "Une fois votre base de donnée structurée, vos premières données stockées, vous pouvez visualiser ces informations, via différentes requêtes.";
+	$scope.requetesText= "Une fois votre base de données structurée, vos premières données stockées, vous pouvez visualiser ces informations, via différentes requêtes.";
   	$scope.requetes = [
 	  {
 		  name : 'Sélectionner toutes les données',
@@ -175,7 +175,7 @@ app.controller('requetesController', ['$scope', function($scope) {
 		  imageRel : '',
 	  },
 	  {
-		  name : 'Compte le nombre de lignes',
+		  name : 'Compter le nombre de lignes',
 		  requete : "SELECT count(*) from villes.coordonnees;",
 		  texteComplementaire : 'Attention cette requête peut affecter les performances de la base de données, elle doit interroger tous les nœuds.',
 		  imageRel : '',
@@ -201,7 +201,7 @@ app.controller('requetesController', ['$scope', function($scope) {
 
 app.controller('operationsController', ['$scope', function($scope) {
 	$scope.operationsTitle ="Opérations";
-	$scope.operationsText= "Dans certains cas, il se peut que vous aillez besoin de modifier la structure de votre base de donnée/ structure de vos tables, ou gérer les utilisateurs.";
+	$scope.operationsText= "Dans certains cas, il se peut que vous ayez besoin de modifier la structure de votre base de données ou la structure de vos tables, ou de gérer les utilisateurs.";
   	$scope.operations = [
 	  {
 		  name : 'Ajouter une colonne',
@@ -266,12 +266,12 @@ app.controller('operationsController', ['$scope', function($scope) {
 
 app.controller('vuesController', ['$scope', function($scope) {
 	$scope.vuesTitle ="Vues";
-	$scope.vuesText= "Une vue dans une base de données est une synthèse d’une requête d’interrogation de la base. On peut voir une vue comme une table virtuelle qui est définie par un requête. Une vue permet à l’utilisateur d’éviter de taper une requête très longue, mais aussi pour masquer certaines informations à certains utilisateurs. ";
+	$scope.vuesText= "Une vue dans une base de données est une synthèse d’une requête d’interrogation de la base. On peut voir une vue comme une table virtuelle qui est définie par une requête. Une vue permet à la fois à l’utilisateur d’éviter de taper une requête très longue, mais aussi de masquer certaines informations à certains utilisateurs. ";
   	$scope.vues = [
 	  {
-		  name : 'Créer une vue depuis une requête:',
+		  name : 'Créer une vue depuis une requête',
 		  requete : "CREATE MATERIALIZED VIEW villes.grandes_villes as SELECT * from villes.coordonnees WHERE nom in ('Paris', 'Marseille') AND nom IS NOT NULL AND code_postal IS NOT NULL PRIMARY KEY (nom, code_postal);",
-		  texteComplementaire : "La requête select doit vérifier que les clefs ne sont pas nulles et la nouvelle clef doit etre egale ou plus restrictive que la table d'origine.",
+		  texteComplementaire : "La requête select doit vérifier que les clefs ne sont pas nulles et la nouvelle clef doit être égale ou plus restrictive que la table d'origine.",
 		  imageRel : '',
 	  },
 	  {
